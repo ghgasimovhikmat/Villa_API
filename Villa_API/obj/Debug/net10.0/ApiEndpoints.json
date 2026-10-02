@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Villa_API.Models.Villa, Villa_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "Villa_API.DTO.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[Villa_API.DTO.VillaDTO, Villa_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -35,7 +35,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Villa_API.Models.Villa",
+        "Type": "Villa_API.DTO.ApiResponse\u00601[[Villa_API.DTO.VillaCreateDTO, Villa_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Villa_API.Models.Villa",
+        "Type": "Villa_API.DTO.ApiResponse\u00601[[Villa_API.DTO.VillaDTO, Villa_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -92,7 +92,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Villa_API.Models.Villa",
+        "Type": "Villa_API.DTO.ApiResponse\u00601[[Villa_API.DTO.VillaDTO, Villa_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -118,7 +118,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Villa_API.Models.Villa",
+        "Type": "Villa_API.DTO.ApiResponse\u00601[[System.Object, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

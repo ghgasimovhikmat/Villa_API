@@ -3,6 +3,7 @@ using Scalar.AspNetCore;
 using Villa_API.Data;
 using Villa_API.DTO;
 using Villa_API.Models;
+using Villa_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,11 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<Villa, VillaCreateDTO>().ReverseMap();
     o.CreateMap<Villa, VillaUpdateDTO>().ReverseMap();
     o.CreateMap<Villa, VillaDTO>().ReverseMap();
+    o.CreateMap<VillaUpdateDTO, VillaDTO>().ReverseMap();
+    o.CreateMap<User, UserDTO>().ReverseMap();
 });
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 

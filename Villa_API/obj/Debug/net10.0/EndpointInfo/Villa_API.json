@@ -24,26 +24,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Villa"
-                  }
+                  "$ref": "#/components/schemas/ApiResponseOfIEnumerableOfVillaDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Villa"
-                  }
+                  "$ref": "#/components/schemas/ApiResponseOfIEnumerableOfVillaDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Villa"
-                  }
+                  "$ref": "#/components/schemas/ApiResponseOfIEnumerableOfVillaDTO"
                 }
               }
             }
@@ -80,17 +71,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaCreateDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaCreateDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaCreateDTO"
                 }
               }
             }
@@ -121,17 +112,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               }
             }
@@ -180,17 +171,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfVillaDTO"
                 }
               }
             }
@@ -219,17 +210,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfObject"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfObject"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Villa"
+                  "$ref": "#/components/schemas/ApiResponseOfObject"
                 }
               }
             }
@@ -240,13 +231,13 @@
   },
   "components": {
     "schemas": {
-      "Villa": {
-        "required": [
-          "name"
-        ],
+      "ApiResponseOfIEnumerableOfVillaDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
             "pattern": "^-?(?:0|[1-9]\\d*)$",
             "type": [
               "integer",
@@ -254,7 +245,126 @@
             ],
             "format": "int32"
           },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "$ref": "#/components/schemas/VillaDTO"
+            }
+          },
+          "errors": { },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseOfObject": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": { },
+          "errors": { },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseOfVillaCreateDTO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/VillaCreateDTO"
+              }
+            ]
+          },
+          "errors": { },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApiResponseOfVillaDTO": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "statusCode": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/components/schemas/VillaDTO"
+              }
+            ]
+          },
+          "errors": { },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "VillaCreateDTO": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
           "name": {
+            "maxLength": 50,
             "type": "string"
           },
           "details": {
@@ -292,28 +402,24 @@
               "null",
               "string"
             ]
-          },
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedDate": {
-            "type": [
-              "null",
-              "string"
-            ],
-            "format": "date-time"
           }
         }
       },
-      "VillaCreateDTO": {
+      "VillaDTO": {
         "required": [
           "name"
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
           "name": {
-            "maxLength": 50,
             "type": "string"
           },
           "details": {
