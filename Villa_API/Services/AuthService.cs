@@ -9,15 +9,17 @@ namespace Villa_API.Services
     {
         private readonly ApplicationDbContext _db;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
         public AuthService(ApplicationDbContext db, IConfiguration configuration, IMapper mapper)
         {
             _db = db;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
-        public async Task<bool> IsEmailExistingAsync(string email)
+        public async Task<bool> IsEmailExistsAsync(string email)
         {
-            return await _db.Users.AnyAsync(u => u.Email.Equals(email,StringComparison.CurrentCultureIgnoreCase));
+            return await _db.Users.AnyAsync(u => u.Email.ToLower() == email.ToLower());
         }
 
         public Task<LoginRequestDTO> LoginAsync(LoginRequestDTO loginRequestDTO)
@@ -30,7 +32,7 @@ namespace Villa_API.Services
 
             try
             {
-                if (await IsEmailExistingAsync(registrationRequestDTO.Email))
+                if (await IsEmailExistsAsync(registrationRequestDTO.Email))
                 {
                     throw new Exception($"Email {registrationRequestDTO.Email} is already registered");
                 }

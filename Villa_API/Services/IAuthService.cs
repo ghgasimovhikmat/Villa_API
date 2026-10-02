@@ -7,7 +7,7 @@ namespace Villa_API.Services
         Task<UserDTO> RegisterAsync(RegistrationRequestDTO registrationRequestDTO);
         Task<LoginRequestDTO> LoginAsync(LoginRequestDTO loginRequestDTO);
 
-        Task<bool> IsEmailExistingAsync(string email);
+        Task<bool> IsEmailExistsAsync(string email);
 
     }
 }

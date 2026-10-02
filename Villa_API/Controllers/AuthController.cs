@@ -15,19 +15,19 @@ namespace Villa_API.Controllers
         {
             _authService = authService;
         }
-        [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse<IEnumerable<VillaDTO>>),StatusCodes.Status200OK)]
+        [HttpPost]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<VillaDTO>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ApiResponse<UserDTO>>>Register(RegistrationRequestDTO registrationRequestDTO)
+        public async Task<ActionResult<ApiResponse<UserDTO>>> Register([FromBody]RegistrationRequestDTO registrationRequestDTO)
         {
             try
             {
-                               if (registrationRequestDTO == null)
+                if (registrationRequestDTO == null)
                 {
                     return BadRequest(ApiResponse<object>.BadRequest("Villa data is required"));
                 }
                 //auth service
-                if (await _authService.IsEmailExistingAsync(registrationRequestDTO.Email))
+                if (await _authService.IsEmailExistsAsync(registrationRequestDTO.Email))
                 {
                     return Conflict(ApiResponse<object>.Conflict($"Email {registrationRequestDTO.Email} is already registered"));
                 }
